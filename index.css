@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* overflow-x: hidden; */
+}
+
+/* heading  */
+
+.game {
+  position: relative;
+  /* background: #b64b4b; */
+  /* border-radius: 10%;  */
+  /* border: 2px solid black; */
+  width: 88vw;
+  margin-left: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_name {
+  text-align: center;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.team1 {
+  background: rgb(222, 83, 83);
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team2 {
+  background: rgb(51, 51, 134);
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rowstart {
+  position: relative;
+}
+
+.card-text {
+  border: 1px solid black;
+  height: 80%;
+  border-radius: 10%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c_score {
+  font-size: 5rem;
+}
+
+.head {
+  background: #451d7a;
+  height: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team_name,
+.pre_score {
+  background-color: brown;
+  color: white;
+  height: 9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+
+.team_A {
+  background: rgb(245, 3, 3);
+  height: 55vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  font-weight: bolder;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.15);
+}
+
+.team_B {
+  background: rgb(43, 3, 245);
+  height: 55vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  font-weight: bolder;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.15);
+}
+
+.VS {
+  z-index: 2;
+  position: absolute;
+  left: 43%;
+  top: 36%;
+  color: rgb(251, 148, 5);
+  font-size: 6rem;
+  font-weight: bolder;
+}
+
+.pre_score {
+  position: relative;
+  bottom: 20%;
+}
+
+.r1 {
+  display: none;
+}
+
+.r2 {
+  display: none;
+}
+
+.r3 {
+  display: none;
+}
+
+.r4 {
+  display: none;
+}
+
+.r5 {
+  display: none;
+}
+
+/* .r5 col,
+.h4 col,
+.r3 col,
+.r2 col,
+.r1 col{
+  font-size: 2rem;
+  font-weight: bold;
+} */
+.pre-score-text{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.pre_score {
+  height: 23vh;
+  position: relative;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.7),
+    rgba(0, 0, 255, 0.7)
+  );
+}

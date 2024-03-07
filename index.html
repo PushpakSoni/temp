@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="head">
+      <h1
+        style="color: white; font-size: 4rem; font-weight: bolder"
+        id="game_name"
+      >
+        Table Tennis
+      </h1>
+    </div>
+
+    <div
+      class="team_name"
+      style="background-color: brown; color: white; height: 8vh"
+    >
+      <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col col-5" style="font-size: 2rem; font-weight: bold">
+            <span id="team_n1">T1</span>
+          </div>
+          <div
+            class="col col-2"
+            style="font-size: 2rem; font-weight: bold; display: inline"
+          >
+            Round: <span class="round_number">3</span>
+          </div>
+          <div class="col col-5" style="font-size: 2rem; font-weight: bold">
+            <span id="team_n2">T2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="team_score"> -->
+    <!-- <div class="container text-center"> -->
+    <div class="row align-items-start">
+      <div
+        class="col col-md-6 col-lg-6 col-sm-12 team_A"
+        style="font-size: 15rem"
+      >
+        <span id="score_A">0</span>
+        <!-- 500 -->
+      </div>
+      <div
+        class="col team_B col-md-6 col-lg-6 col-sm-12"
+        style="font-size: 15rem"
+        id="socre_B"
+      >
+        <!-- 6000 -->
+        <span id="score_B">0</span>
+      </div>
+    </div>
+    <p class="VS">V/S</p>
+
+    <div class="pre_score">
+      <div class="container text-center">
+        <div class="row align-items-start r5">
+          <div class="col col-5 pre-score-text">
+            <span id="A_pre_score_5">T1</span>
+          </div>
+          <div class="col col-2 pre-score-text">
+            Round: <span class="round_number">5</span>
+          </div>
+          <div class="col col-5 pre-score-text">
+            <span id="B_pre_score_5">T2</span>
+          </div>
+        </div>
+
+        <div class="row align-items-start r4">
+          <div class="col col-5 pre-score-text">
+            <span id="A_pre_score_4">T1</span>
+          </div>
+          <div class="col col-2 pre-score-text">
+            Round: <span class="round_number">4</span>
+          </div>
+          <div class="col col-5 pre-score-text">
+            <span id="B_pre_score_4">T2</span>
+          </div>
+        </div>
+
+        <div class="row align-items-start r3">
+          <div class="col col-5 pre-score-text">
+            <span id="A_pre_score_3">T1</span>
+          </div>
+          <div class="col col-2 pre-score-text">
+            Round: <span class="round_number">3</span>
+          </div>
+          <div class="col col-5 pre-score-text">
+            <span id="B_pre_score_3">T2</span>
+          </div>
+        </div>
+
+        <div class="row align-items-start r2">
+          <div class="col col-5 pre-score-text">
+            <span id="A_pre_score_2">T1</span>
+          </div>
+          <div class="col col-2 pre-score-text">
+            Round: <span class="round_number">2</span>
+          </div>
+          <div class="col col-5 pre-score-text">
+            <span id="B_pre_score_2">T2</span>
+          </div>
+        </div>
+
+        <div class="row align-items-start r1">
+          <div class="col col-5 pre-score-text">
+            <span id="A_pre_score_1">T1</span>
+          </div>
+          <div class="col col-2 pre-score-text">
+            Round: <span class="round_number">1</span>
+          </div>
+          <div class="col col-5 pre-score-text">
+            <span id="B_pre_score_1">T2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- </div> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let prev = document.querySelector(".round_number");
+
+      fetch("https://jsonplaceholder.typicode.com/posts/")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          // var name = data.response_obj[0].teamnameA;
+          // var name =  data.filter(item => item.id === '1');
+          // console.table(data.response_obj[0].team_a);
+          // console.log(data[1]);
+          if (data[1].id == 2) {
+            document.querySelector(".r1").style.display = "flex";
+            document.querySelector(".team_A").style.height = "55vh";
+            document.querySelector(".team_B").style.height = "55vh";
+            document.querySelector(".VS").style.top = "36%";
+
+            document.getElementById("A_pre_score_1").innerText = data[1].id;
+            document.getElementById("B_pre_score_1").innerText = data[1].id;
+            console.log(document.getElementById("A_pre_score_1").innerText);
+          }
+
+          if (data[2].id == 3) {
+            document.querySelector(".r2").style.display = "flex";
+            document.querySelector(".r1").style.display = "flex";
+            document.querySelector(".team_A").style.height = "55vh";
+            document.querySelector(".team_B").style.height = "55vh";
+            document.querySelector(".VS").style.top = "36%";
+
+            document.getElementById("A_pre_score_2").innerText = data[2].id;
+            document.getElementById("B_pre_score_2").innerText = data[2].id;
+            // console.log(document.getElementById("A_pre_score_1").innerText);
+          }
+
+          if (data[3].id == 4) {
+            document.querySelector(".r3").style.display = "flex";
+            document.querySelector(".r2").style.display = "flex";
+            document.querySelector(".r1").style.display = "flex";
+            document.querySelector(".team_A").style.height = "55vh";
+            document.querySelector(".team_B").style.height = "55vh";
+            document.querySelector(".VS").style.top = "36%";
+
+            document.getElementById("A_pre_score_3").innerText = data[3].id;
+            document.getElementById("B_pre_score_3").innerText = data[3].id;
+          }
+
+          if (data[4].id == 5) {
+            document.querySelector(".r3").style.display = "flex";
+            document.querySelector(".r2").style.display = "flex";
+            document.querySelector(".r1").style.display = "flex";
+            document.querySelector(".team_A").style.height = "55vh";
+            document.querySelector(".team_B").style.height = "55vh";
+            document.querySelector(".VS").style.top = "36%";
+
+            document.getElementById("A_pre_score_4").innerText = data[4].id;
+            document.getElementById("B_pre_score_4").innerText = data[4].id;
+          }
+
+          // if (data[5].id == 6) {
+          //   document.querySelector(".r4").style.display = "flex";
+          //   document.querySelector(".r3").style.display = "flex";
+          //   document.querySelector(".r2").style.display = "flex";
+          //   document.querySelector(".r1").style.display = "flex";
+          //   document.querySelector(".team_A").style.height = "55vh";
+          //   document.querySelector(".team_B").style.height = "55vh";
+          //   document.querySelector(".VS").style.top = "36%";
+
+          //   document.getElementById("A_pre_score_5").innerText = data[5].id;
+          //   document.getElementById("B_pre_score_5").innerText = data[5].id;
+          // }
+        });
+
+      // if (prev.innerText == 5) {
+      //   document.querySelector(".r4").style.display = "flex";
+      //   document.querySelector(".r3").style.display = "flex";
+      //   document.querySelector(".r2").style.display = "flex";
+      //   document.querySelector(".r1").style.display = "flex";
+      //   document.querySelector(".team_A").style.height = "55vh";
+      //   document.querySelector(".team_B").style.height = "55vh";
+      //   document.querySelector(".VS").style.top = "36%";
+      //   // document.querySelector(".pre-score-text").style.fontSize = "";
+      // }
+      //  else if (prev.innerText == 4) {
+      //   document.querySelector(".r3").style.display = "flex";
+      //   document.querySelector(".r2").style.display = "flex";
+      //   document.querySelector(".r1").style.display = "flex";
+      //   document.querySelector(".team_A").style.height = "55vh";
+      //   document.querySelector(".team_B").style.height = "55vh";
+      //   document.querySelector(".VS").style.top = "36%";
+      // }
+      // else if (prev.innerText == 3) {
+      //   document.querySelector(".r2").style.display = "flex";
+      //   document.querySelector(".r1").style.display = "flex";
+      //   document.querySelector(".team_A").style.height = "55vh";
+      //   document.querySelector(".team_B").style.height = "55vh";
+      //   document.querySelector(".VS").style.top = "36%";
+      // }
+      // // else if (prev.innerText == 2) {
+      // // }
+      // else {
+      //   document.querySelector(".team_A").style.height = "80vh";
+      //   document.querySelector(".team_B").style.height = "80vh";
+      //   document.querySelector(".VS").style.top = "56vh";
+      // }
+    </script>
+
+    <!-- <script>
+      // fetch('https://').then(res=>{
+      //   console.log(res)
+      // })
+
+      fetch("https://ipsgwalior.org/scoreboard/screenscore.php/prescore", {
+        method: "POST",
+        body: JSON.stringify({
+          key_teamA:"a",
+          key_teamB:"b",
+          key_date:"29/2/2024",
+          Key_game:"BADMINTON",
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+
+      // fetch('https://ipsgwalior.org/scoreboard/screenscore.php/currentscore').then(res=>{
+      //   console.log(res)
+      // })
+    </script> -->
+
+    <!-- <script type="module" src="./index.js"></script> -->
+  </body>
+</html>
+
+<!-- if (prev.innerText == 5) {
+  document.querySelector(".r4").style.display = "flex";
+  document.querySelector(".r3").style.display = "flex";
+  document.querySelector(".r2").style.display = "flex";
+  document.querySelector(".r1").style.display = "flex";
+  document.querySelector(".team_A").style.height = "55vh";
+  document.querySelector(".team_B").style.height = "55vh";
+  document.querySelector(".VS").style.top = "36%";
+  // document.querySelector(".pre-score-text").style.fontSize = "";
+} 
+
+else if (prev.innerText == 4) {
+  document.querySelector(".r3").style.display = "flex";
+  document.querySelector(".r2").style.display = "flex";
+  document.querySelector(".r1").style.display = "flex";
+  document.querySelector(".team_A").style.height = "55vh";
+  document.querySelector(".team_B").style.height = "55vh";
+  document.querySelector(".VS").style.top = "36%";
+} 
+
+else if (prev.innerText == 3) {
+  document.querySelector(".r2").style.display = "flex";
+  document.querySelector(".r1").style.display = "flex";
+  document.querySelector(".team_A").style.height = "55vh";
+  document.querySelector(".team_B").style.height = "55vh";
+  document.querySelector(".VS").style.top = "36%";
+} else if (prev.innerText == 2) {
+  document.querySelector(".r1").style.display = "flex";
+  document.querySelector(".team_A").style.height = "55vh";
+  document.querySelector(".team_B").style.height = "55vh";
+  document.querySelector(".VS").style.top = "36%";
+} else{
+  document.querySelector(".team_A").style.height = "80vh";
+  document.querySelector(".team_B").style.height = "80vh";
+  document.querySelector(".VS").style.top = "56vh";
+} -->
